@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gmail Clone</title>
+    <link rel="stylesheet" href="./bootstrap.min.css" />
+    <style>
+        /* Your existing styles */
+        #sideNav {
+            border-right: 1px solid #ddd;
+        }
+        #sideNav .list-group-item {
+            padding: 10px 15px;
+        }
+        #sideNav .list-group-item.active {
+            background-color: #f4f4f4;
+        }
+        #mainContent {
+            padding: 20px;
+        }
+        #search-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #search-bar {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .profile-pic {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+        .profile-pic img {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        #profile-details {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="sideNav" class="col-md-2 p-2">
+                <img src="./images.png" height="50" alt="Logo">
+                <div class="link-list">
+                    <ul class="list-group pt-4">
+                        <a href="#" class="list-group-item">Inbox</a>
+                        <a href="#" class="list-group-item">Snoozed</a>
+                        <a href="#" class="list-group-item">Draft</a>
+                        <a href="#" class="list-group-item">Starred</a>
+                        <a href="#" class="list-group-item">Important</a>
+                        <a href="#" class="list-group-item">All Mails</a>
+                        <a href="#" class="list-group-item">Trash</a>
+                        <a href="#" class="list-group-item">Scheduled</a>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="mainContent" class="col-md-10">
+                <div id="search-container">
+                    <input type="text" id="search-bar" name="search" placeholder="Search...">
+                    <button class="btn btn-success">Search</button>
+                    <div class="d-flex align-items-center">
+                        <img src="./download.png"alt="Profile" height="25">
+                        <img src="./settings.png" alt="settingsIcon" height="25">
+                        <img src="./support.png" class="support" alt="help" height="25">
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <h2>PROFILE DETAILS</h2>
+                    <form id="profileForm">
+                        <!-- Profile Picture Section -->
+                        <div class="profile-pic">
+                            <img src="images/default.png" alt="Profile Picture" id="profilePicDisplay">
+                            <input type="file" class="form-control-file mt-2" id="profilePic" accept="image/*">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="dob">Date of Birth:</label>
+                                <input type="date" class="form-control" id="dob">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="contact">Contact Number:</label>
+                                <input type="tel" class="form-control" id="contact" placeholder="Enter your contact number">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="occupation">Occupation:</label>
+                                <input type="text" class="form-control" id="occupation" placeholder="Enter your occupation">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="age">Age:</label>
+                                <input type="number" class="form-control" id="age" placeholder="Enter your age">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="gender">Gender:</label>
+                                <select id="gender" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="emergencycontact">Emergency Contact:</label>
+                                <input type="text" class="form-control" id="emergencycontact" placeholder="Enter emergency contact name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label for="emergencycontactnumber">Emergency Contact Number:</label>
+                                <input type="tel" class="form-control" id="emergencycontactnumber" placeholder="Enter emergency contact number">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+
+                    <!-- Display profile details -->
+                    <div id="profile-details">
+                        <h3>Profile Summary</h3>
+                        <p><strong>Name:</strong> <span id="displayName"></span></p>
+                        <p><strong>Date of Birth:</strong> <span id="displayDob"></span></p>
+                        <p><strong>Contact Number:</strong> <span id="displayContact"></span></p>
+                        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+                        <p><strong>Occupation:</strong> <span id="displayOccupation"></span></p>
+                        <p><strong>Age:</strong> <span id="displayAge"></span></p>
+                        <p><strong>Gender:</strong> <span id="displayGender"></span></p>
+                        <p><strong>Emergency Contact:</strong> <span id="displayEmergencyContact"></span></p>
+                        <p><strong>Emergency Contact Number:</strong> <span id="displayEmergencyContactNumber"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const dob = document.getElementById('dob').value;
+            const contact = document.getElementById('contact').value;
+            const email = document.getElementById('email').value;
+            const occupation = document.getElementById('occupation').value;
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const emergencyContact = document.getElementById('emergencycontact').value;
+            const emergencyContactNumber = document.getElementById('emergencycontactnumber').value;
+
+            // Display the details
+            document.getElementById('displayName').innerText = name;
+            document.getElementById('displayDob').innerText = dob;
+            document.getElementById('displayContact').innerText = contact;
+            document.getElementById('displayEmail').innerText = email;
+            document.getElementById('displayOccupation').innerText = occupation;
+            document.getElementById('displayAge').innerText = age;
+            document.getElementById('displayGender').innerText = gender;
+            document.getElementById('displayEmergencyContact').innerText = emergencyContact;
+            document.getElementById('displayEmergencyContactNumber').innerText = emergencyContactNumber;
+
+            // Show the profile details section
+            document.getElementById('profile-details').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

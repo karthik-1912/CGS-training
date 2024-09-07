@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+label{
+    color: black;
+}
+body {
+    background: url(images/web.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form {
+    box-shadow: 1px 5px 40px #fefefe;
+    background-color: azure;
+}
+
+#title_ h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #080808;
+    font-weight: bold;
+}
+
+.section_ {
+    opacity: 0.5;
+}
+
+.error-message {
+    color: red;
+    display: none;
+}
