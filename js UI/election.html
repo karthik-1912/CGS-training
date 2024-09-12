@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        .container-fluid {
+            background-image: url(assets/images/election.webp);
+            height: 100vh;
+        }
+        .janasena-card {
+            background-color: #e74c3c;
+            height: 100%; /* blue */
+        }
+        .TDP-card {
+            background-color: #f1c40f;
+            height: 100%; /* yellow */
+        }
+        .Congress-card {
+            background-color: #2ecc71; 
+            height: 100%;/* green */
+        }
+        .YSRCP-card {
+            background-color: #3498db; /* red */
+            height: 100%;
+        }
+        #finish-voting {
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container-fluid img-fluid">
+        <div class="row justify-content-center">
+            
+                <h1 class="text-center" style="color: beige;">Election Game</h1>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card janasena-card">
+                            <img src="assets/images/janasena.png" class="card-img-top img-fluid" alt="Janasena Logo">
+                            <div class="card-body">
+                                <h5 class="card-title">janasena</h5>
+                                <p class="card-text">Votes: <span id="janasena-votes">0</span></p>
+                                <button class="btn btn-primary" id="vote-janasena">Vote for Janasena</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card TDP-card">
+                            <img src="assets/images/cbn.jpg" class="card-img-top " alt="Party 2 Logo">
+                            <div class="card-body">
+                                <h5 class="card-title">TDP</h5>
+                                <p class="card-text">Votes: <span id="TDP-votes">0</span></p>
+                                <button class="btn btn-primary" id="vote-TDP">Vote for TDP</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card Congress">
+                            <img src="assets/images/congress.png" class="card-img-top" alt="Party 3 Logo">
+                            <div class="card-body">
+                                <h5 class="card-title">Congress</h5>
+                                <p class="card-text">Votes: <span id="Congress-votes">0</span></p>
+                                <button class="btn btn-primary" id="vote-congress">Vote for Congress</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card YSRCP-card">
+                            <img src="assets/images/ysr.jpg" class="card-img-top" alt="Party 4 Logo">
+                            <div class="card-body">
+                                <h5 class="card-title">YSRCP</h5>
+                                <p class="card-text">Votes: <span id="YSRCP-votes">0</span></p>
+                                <button class="btn btn-primary" id="vote-YSRCP">Vote for YSRCP</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-success" id="finish-voting">Finish Voting</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let partyVotes = {
+    janasena: 0,
+    TDP: 0,
+    Congress: 0,
+    YSRCP: 0
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".btn").forEach(function(button) {
+        button.addEventListener("click", function() {
+            if (button.id !== "finish-voting") {
+                let partyId = button.id.replace("vote-", "");
+                partyVotes[partyId]++;
+                document.getElementById(`${partyId}-votes`).textContent = partyVotes[partyId];
+            } else {
+                
+                let maxVotes = Math.max(...Object.values(partyVotes));
+                let winners = Object.keys(partyVotes).filter(party => partyVotes[party] === maxVotes);
+
+                
+                let winnerText = "";
+                if (winners.length === 1) {
+                    winnerText = `The winner is ${winners[0]} with ${maxVotes} votes!`;
+                } else {
+                    winnerText = `It's a tie between ${winners.join(", ")} with ${maxVotes} votes each!`;
+                }
+
+                
+                let winnerElement = document.createElement("h2");
+                winnerElement.textContent = winnerText;
+                winnerElement.classList.add("text-center");
+
+                
+                document.querySelector(".container-fluid").appendChild(winnerElement);
+
+                
+                document.querySelectorAll(".btn").forEach(function(button) {
+                    if (button.id !== "finish-voting") {
+                        button.disabled = true;
+                    }
+                });
+
+                
+                document.getElementById("finish-voting").disabled = true;
+            }
+        });
+    });
+});
+      
+    </script>
+</body>
+</html>
