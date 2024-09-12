@@ -1,0 +1,110 @@
+{
+    "profiles": [
+      {
+        "id": 1,
+        "name": "Ravi Sharma",
+        "email": "ravi.sharma@example.in",
+        "password": "ravi123",
+        "role": "client"
+      },
+      {
+        "id": 2,
+        "name": "Aditi Verma",
+        "email": "aditi.verma@example.in",
+        "password": "aditi123",
+        "role": "client"
+      },
+      {
+        "id": 3,
+        "name": "Rahul Singh",
+        "email": "rahul.singh@example.in",
+        "password": "rahul123",
+        "role": "admin"
+      },
+      {
+        "id": 4,
+        "name": "Anjali Kapoor",
+        "email": "anjali.kapoor@example.in",
+        "password": "anjali123",
+        "role": "admin"
+      },
+      {
+        "id": 5,
+        "name": "Priya Nair",
+        "email": "priya.nair@example.in",
+        "password": "priya123",
+        "role": "client"
+      },
+      {
+        "id": 6,
+        "name": "Siddharth Deshmukh",
+        "email": "siddharth.deshmukh@example.in",
+        "password": "sid123",
+        "role": "client"
+      },
+      {
+        "id": 7,
+        "name": "Kiran Patil",
+        "email": "kiran.patil@example.in",
+        "password": "kiran123",
+        "role": "admin"
+      },
+      {
+        "id": 8,
+        "name": "Neha Gupta",
+        "email": "neha.gupta@example.in",
+        "password": "neha123",
+        "role": "admin"
+      },
+      {
+        "id": 9,
+        "name": "Vikram Joshi",
+        "email": "vikram.joshi@example.in",
+        "password": "vikram123",
+        "role": "client"
+      },
+      {
+        "id": 10,
+        "name": "Deepika Rao",
+        "email": "deepika.rao@example.in",
+        "password": "deepika123",
+        "role": "client"
+      },
+      {
+        "id": 11,
+        "name": "Manish Tiwari",
+        "email": "manish.tiwari@example.in",
+        "password": "manish123",
+        "role": "admin"
+      },
+      {
+        "id": 12,
+        "name": "Swati Iyer",
+        "email": "swati.iyer@example.in",
+        "password": "swati123",
+        "role": "client"
+      },
+      {
+        "id": 13,
+        "name": "Aman Aggarwal",
+        "email": "aman.aggarwal@example.in",
+        "password": "aman123",
+        "role": "client"
+      },
+      {
+        "id": 14,
+        "name": "Tina Malhotra",
+        "email": "tina.malhotra@example.in",
+        "password": "tina123",
+        "role": "admin"
+      },
+      {
+        "id": 15,
+        "name": "Rajesh Kumar",
+        "email": "rajesh.kumar@example.in",
+        "password": "rajesh123",
+        "role": "client"
+      }
+    ]
+  }
+  
