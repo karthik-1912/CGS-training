@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step-by-Step Registration Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(circle, rgb(100, 151, 203) 0%, rgba(27,24,39,1) 100%);
+      color: #fcfcfc;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container {
+      background-color: #212529;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 8px 16px rgba(5, 5, 5, 0.5);
+      width: 100%;
+      max-width: 500px;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+    .btn-next {
+      float: right;
+      margin-top: 10px;
+    }
+    #submitButton {
+      display: none;
+      float: right;
+    }
+    #result {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container text-center">
+    <h2>Register</h2>
+    <form id="registerForm">
+      
+      <div class="step active" id="step1">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        </div>
+        <button type="button" class="btn btn-primary btn-next" onclick="nextStep(1)">Next</button>
+      </div>
+
+      
+      <div class="step" id="step2">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter your username">
+        </div>
+        <button type="button" class="btn btn-primary btn-next" onclick="nextStep(2)">Next</button>
+      </div>
+
+      
+      <div class="step" id="step3">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <button type="button" class="btn btn-primary btn-next" onclick="nextStep(3)">Next</button>
+      </div>
+
+      
+      <div class="step" id="step4">
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter your password">
+        </div>
+        <button type="button" class="btn btn-success" id="submitButton" onclick="submitForm()">Submit</button>
+      </div>
+    </form>
+
+    <div id="result" class="mt-4">
+      <h4>Form Submission</h4>
+      <p><strong>Name:</strong> <span id="resultName"></span></p>
+      <p><strong>Username:</strong> <span id="resultUsername"></span></p>
+      <p><strong>Email:</strong> <span id="resultEmail"></span></p>
+      <p><strong>Password:</strong> <span id="resultPassword"></span></p>
+    </div>
+  </div>
+
+  <script src="main.js">
+    
+  </script>
+
+</body>
+</html>

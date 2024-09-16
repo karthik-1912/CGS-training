@@ -1,0 +1,28 @@
+
+body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+#result-card {
+    background-size: cover;
+    background-color:antiquewhite;
+    
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+}
+
+#result-card.high {
+    background-image: url("");
+}
+
+#result-card.low {
+    background-image: url("");
+}
