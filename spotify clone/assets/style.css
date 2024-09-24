@@ -28,7 +28,7 @@ body {
   }
   .main-content {
     padding: 1rem;
-    margin-left: 25%; /* Adjusted for the fixed sidebar */
+    margin-left: 25%; 
   }
   .album-cover {
     width: 100px;
@@ -68,7 +68,7 @@ body {
     width: 100%;
     background-color: #282828;
     padding: 1rem;
-    margin-left: -1rem; /* Ensure this stays inside the sidebar */
+    margin-left: -1rem; 
   }
   .controls {
     display: flex;
