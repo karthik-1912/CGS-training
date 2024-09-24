@@ -63,7 +63,7 @@ function displaySearchResults(tracks) {
   html += '</div>';
   document.getElementById('search-results').innerHTML = html;
 
-  // Add event listeners to play buttons
+  
   document.querySelectorAll('.play-button').forEach(button => {
     button.addEventListener('click', (e) => {
       const previewUrl = e.target.getAttribute('data-preview');
@@ -97,7 +97,7 @@ function displayAlbums(albums) {
   });
   document.getElementById('album-list').innerHTML = html;
 
-  // Add event listeners to album cards
+  
   document.querySelectorAll('.album-card').forEach(card => {
     card.addEventListener('click', async (e) => {
       const albumId = e.currentTarget.getAttribute('data-id');
@@ -113,8 +113,8 @@ async function displayAlbumTracks(albumId) {
   });
 
   const data = await result.json();
-  currentTracks = data.items; // Save tracks for navigation
-  currentTrackIndex = 0; // Reset track index
+  currentTracks = data.items; 
+  currentTrackIndex = 0; 
   let html = '<h3>Tracks</h3><div class="row song-row">';
   data.items.forEach(track => {
     if (track.preview_url) {
@@ -142,7 +142,7 @@ async function displayAlbumTracks(albumId) {
   html += '</div>';
   document.getElementById('search-results').innerHTML = html;
 
-  // Add event listeners to play buttons
+  
   document.querySelectorAll('.play-button').forEach(button => {
     button.addEventListener('click', (e) => {
       const previewUrl = e.target.getAttribute('data-preview');
